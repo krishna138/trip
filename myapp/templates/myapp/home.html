@@ -1,0 +1,30 @@
+{% extends 'myapp/master.html' %}
+{% load ratings %}
+{% block title %}home{% endblock %}
+{% block main %}
+    <div class="col-xs-8">
+    <div class="row">
+        {%for i in val %}
+  <div class="col-sm-3 " >
+    <div class="thumbnail" style="width: 200px;height: 400px">
+      <img src="{{ i.img }} " width="500" height="200" alt="No Image Found">
+
+      <div class="caption">
+        <h4><bold>{{i.city }}</bold></h4>
+        <h3>{{i.loc}}</h3>
+        <p>{{i.desc}}</p>
+        <h3>Rs&nbsp{{i.price}}</h3>
+       <p><a href={% url 'myapp:book' %} class="btn btn-primary" role="button">Book</a>
+          <a href='{% url 'myapp:detailPost' i.city%}' class="btn btn-default" role="button">More Places</a>
+        </p>
+
+      </div>
+    </div>
+  </div>
+    {% endfor %}
+</div>
+
+    </div>
+
+
+{% endblock %}
